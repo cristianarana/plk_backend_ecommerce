@@ -19,7 +19,8 @@ services:
 
   app:
     build:
-      context: ./src
+      context: .
+      dockerfile: src/Dockerfile
     container_name: plk_app
     restart: unless-stopped
     depends_on:
@@ -32,6 +33,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
       APP_PORT: ${APP_PORT:-3000}
+      NODE_ENV: production
     ports:
       - "${APP_PORT:-3000}:3000"
 
