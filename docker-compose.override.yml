@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+      target: build
+    environment:
+      NODE_ENV: dev
+    command: npm run dev
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./tsconfig.json:/usr/src/app/tsconfig.json
+    restart: "no"
